@@ -2,6 +2,23 @@
 Self-Driving Car Engineer Nanodegree Program
 
 ---
+## The Model
+
+The state is updated based on the measurement in global coordinate. First, the position of vehicle and the way points are transferred from global coordinate to local coordinate, as well as rotation. Then, a third order curve was fitted to initiate the state and actuator with/without latency, as the code in `line 110 - 138 in main.cpp`. The update equation are coded in `MPC.cpp`.
+
+## Timestep Length and Elapsed Duration
+
+The timestep length, `N`, is set as 10. If the N is set too small, the MPC has poor capability to estimate the status accurately. However, If the N is set too large, the MPC requires a large mount of computational resource and cannot control the vehicle in real-time.
+
+The elapsed duration, `dt`, is set as 0.1. The elapsed duration is turned based on the experimental performance.
+
+## Polynomial Fitting and MPC Preprocessing
+
+This step is straightforward. I just follow the tutorial of the quiz.
+
+## Model Predictive Control with Latency
+
+Based on the assumption that the vehicle moves straight during the small latency. The status is updated with the mean values of each status at time 0 (current time) and 0.1 s latency, as the code in `line 130 - 135 in main.cpp`. 
 
 ## Dependencies
 
