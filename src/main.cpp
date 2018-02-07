@@ -126,8 +126,7 @@ int main() {
           double epsi = -atan(coeffs(1));
 
           // consider delay 0.1 s latency
-          // update the state with the mean values at time 0 and 0.1 s latency.
-
+          // update the state with the mean values of each status at time 0 (current time) and 0.1 s latency. 
           psi = -v * delta * delay / Lf / 2;
           px = v * cos(psi) * delay / 2;
           py = v * sin(psi) * delay / 2;
